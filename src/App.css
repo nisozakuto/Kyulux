@@ -9,7 +9,12 @@ header{
 .container{
   background-color: rgb(216, 191, 216, .1);
   min-height: 100vh;
+}
 
+.top-level{
+  display: flex;
+  justify-items: center;
+  justify-content: center;
 }
 
 .marketingStatusSection
