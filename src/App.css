@@ -4,11 +4,16 @@ header{
   align-items: center;
   text-transform: uppercase;
   background-color: rgb(216, 191, 216);
+  padding:10px 0 10px 0;
 }
 
 .container{
   background-color: rgb(216, 191, 216, .1);
   min-height: 100vh;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
 .top-level{

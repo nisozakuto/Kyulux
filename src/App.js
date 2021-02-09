@@ -27,19 +27,6 @@ export default class App extends Component {
       });
   }
 
-  // SponsorButton = () => {
-  //   this.setState({
-  //     topLevelSelection: "sponsor",
-  //   });
-  // };
-
-  // MarketingButton = () => {
-  //   this.setState({
-  //     topLevelSelection: "marketing",
-  //   });
-  //   this.fecthData(this.state.topLevelSelection);
-  // };
-
   route = (e) => {
     console.log(e);
     fetch(
@@ -59,10 +46,6 @@ export default class App extends Component {
       <div>
         <Header />
         <div className="container">
-          <section className="top-level">
-            {/* <button onClick={this.SponsorButton}>Sponsor by Route</button>
-            <button onClick={this.MarketingButton}>Marketing Status</button> */}
-          </section>
           <section className="marketingStatusSection">
             <h3>Marketing Status</h3>
             <aside className="marketingStatus">
@@ -95,8 +78,7 @@ export default class App extends Component {
           <section>
             {this.state.marketing_status.results ? (
               this.state.marketing_status.results.map((e) => {
-                return <p key={e.brand_name}>{e.sponsor_name}</p>;
-                // console.log(e);
+                return <li key={e.application_number}>{e.sponsor_name}</li>;
               })
             ) : (
               <p>nOthign</p>
