@@ -1,3 +1,4 @@
+/* HEADER STARTS */
 header{
   display: flex;
   flex-direction: row;
@@ -17,6 +18,7 @@ nav ul{
 nav ul a{
   margin: 0 1em;
 }
+/* HEADER ENDS */
 
 .container{
   min-height: 100vh;
@@ -43,18 +45,32 @@ nav ul a{
   display: flex;
   justify-items: center;
   justify-content: center;
-  
 }
 
 .marketingStatus button{
   margin: 5px;
   width: 200px;
 }
+/* BROWSE STARTS */
+.marketing-section-results ul{
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
 
+.marketing-section-results li{
+  margin: 3px 0;
+}
+.marketing-section-results li:hover{
+background-color: thistle;
+}
+/* BROWSE ENDS */
 
+/* SEARCH PAGE STARTS */
 .search-page{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top:5em
+  margin-top:5em;
 }
+/* SEARCH PAGE ENDS */

@@ -50,14 +50,16 @@ export default class Browse extends Component {
             </button>
           </aside>
         </section>
-        <section>
-          {this.state.marketing_status.results ? (
-            this.state.marketing_status.results.map((e) => {
-              return <li key={e.application_number}>{e.sponsor_name}</li>;
-            })
-          ) : (
-            <p>nOthign</p>
-          )}
+        <section className="marketing-section-results">
+          <ul>
+            {this.state.marketing_status.results ? (
+              this.state.marketing_status.results.map((e) => {
+                return <li key={e.application_number}>{e.sponsor_name}</li>;
+              })
+            ) : (
+              <p>nOthign</p>
+            )}
+          </ul>
         </section>
       </main>
     );
