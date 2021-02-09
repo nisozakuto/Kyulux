@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+import { Route, Redirect } from "react-router-dom";
 import Header from "./components/Header";
+import Home from "./components/Home";
+import Search from "./components/Search";
+
 import "./App.css";
 
 export default class App extends Component {
@@ -43,52 +47,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="App">
         <Header />
-        <div>
-          <section className="marketingStatusSection">
-            <h3>Marketing Status</h3>
-            <aside className="marketingStatus">
-              <button
-                value="Discontinued"
-                onClick={(e) => this.route(e.target.value)}
-              >
-                Discontinued
-              </button>
-              <button
-                value="Prescription"
-                onClick={(e) => this.route(e.target.value)}
-              >
-                Prescription
-              </button>
-              <button
-                value="None (Tentative Approval)"
-                onClick={(e) => this.route(e.target.value)}
-              >
-                None (Tentative Approval)
-              </button>
-              <button
-                value="Over-the-counter"
-                onClick={(e) => this.route(e.target.value)}
-              >
-                Over-the-counter
-              </button>
-            </aside>
-          </section>
-          <section>
-            {this.state.marketing_status.results ? (
-              this.state.marketing_status.results.map((e) => {
-                return <li key={e.application_number}>{e.sponsor_name}</li>;
-              })
-            ) : (
-              <p>nOthign</p>
-            )}
-          </section>
-          {this.state.searchResults && this.state.searchResults.results ? (
-            <p>Data</p>
-          ) : (
-            <p>no Data</p>
-          )}
+        <div className="container">
+          <Route exact path="/" render={() => <Home />} />
+          <Route exact path="/search" render={() => <Search />} />
         </div>
       </div>
     );
