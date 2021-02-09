@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Search from "./components/Search";
-
+import Browse from "./components/Browse";
 import "./App.css";
 
 export default class App extends Component {
@@ -17,7 +17,6 @@ export default class App extends Component {
       marketing_status: "",
     };
   }
-  componentDidMount() {}
   fecthData(topLevelSelection) {
     fetch(
       `http://api.fda.gov/drug/drugsfda.json?search=products.route:topical&limit=${this.state.limit}`,
@@ -31,20 +30,6 @@ export default class App extends Component {
       });
   }
 
-  route = (e) => {
-    console.log(e);
-    fetch(
-      `https://api.fda.gov/drug/drugsfda.json?search=products.marketing_status:${e}&limit=${this.state.limit}`,
-      {
-        method: "GET",
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({ marketing_status: data });
-      });
-  };
-
   render() {
     return (
       <div className="App">
@@ -52,6 +37,7 @@ export default class App extends Component {
         <div className="container">
           <Route exact path="/" render={() => <Home />} />
           <Route exact path="/search" render={() => <Search />} />
+          <Route exact path="/browse" render={() => <Browse />} />
         </div>
       </div>
     );

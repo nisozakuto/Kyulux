@@ -1,6 +1,23 @@
 import React, { Component } from "react";
 
 export default class Browse extends Component {
+  constructor() {
+    super();
+    this.state = { marketing_status: "", limit: 99 };
+  }
+  route = (e) => {
+    console.log(e);
+    fetch(
+      `https://api.fda.gov/drug/drugsfda.json?search=products.marketing_status:${e}&limit=${this.state.limit}`,
+      {
+        method: "GET",
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ marketing_status: data });
+      });
+  };
   render() {
     return (
       <main>

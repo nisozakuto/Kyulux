@@ -14,6 +14,9 @@ export default class Header extends Component {
             <Link to="/search">
               <li>Search</li>
             </Link>
+            <Link to="/browse">
+              <li>Browse</li>
+            </Link>
           </ul>
         </nav>
       </header>
