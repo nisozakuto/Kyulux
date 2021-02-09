@@ -59,11 +59,6 @@ export default class Browse extends Component {
             <p>nOthign</p>
           )}
         </section>
-        {this.state.searchResults && this.state.searchResults.results ? (
-          <p>Data</p>
-        ) : (
-          <p>no Data</p>
-        )}
       </main>
     );
   }

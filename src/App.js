@@ -15,8 +15,11 @@ export default class App extends Component {
       limit: 99,
       route: "",
       marketing_status: "",
+      search: "",
+      term: "",
     };
   }
+
   fecthData(topLevelSelection) {
     fetch(
       `http://api.fda.gov/drug/drugsfda.json?search=products.route:topical&limit=${this.state.limit}`,
@@ -30,13 +33,43 @@ export default class App extends Component {
       });
   }
 
+  handleInputChange = (e) => {
+    const name = e.currentTarget.name;
+    const value = e.currentTarget.value;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  handleSearchSubmit = (e, parameter) => {
+    e.preventDefault();
+    fetch(`https://api.fda.gov/drug/drugsfda.json?search=${this.state.term}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ search: data });
+      })
+      .catch((err) => console.log(err));
+  };
+
   render() {
     return (
       <div className="App">
         <Header />
         <div className="container">
           <Route exact path="/" render={() => <Home />} />
-          <Route exact path="/search" render={() => <Search />} />
+          <Route
+            exact
+            path="/search"
+            render={() => (
+              <Search
+                handleSearchSubmit={this.handleSearchSubmit}
+                handleInputChange={this.handleInputChange}
+                searchResults={this.state.search}
+              />
+            )}
+          />
           <Route exact path="/browse" render={() => <Browse />} />
         </div>
       </div>
