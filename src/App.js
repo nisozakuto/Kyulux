@@ -43,9 +43,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <Header />
-        <div className="container">
+        <div>
           <section className="marketingStatusSection">
             <h3>Marketing Status</h3>
             <aside className="marketingStatus">
