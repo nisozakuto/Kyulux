@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Search from "./components/Search";
 import Browse from "./components/Browse";
+import Footer from "./components/Footer";
 import "./App.css";
 
 export default class App extends Component {
@@ -72,6 +73,7 @@ export default class App extends Component {
           />
           <Route exact path="/browse" render={() => <Browse />} />
         </div>
+        <Footer />
       </div>
     );
   }

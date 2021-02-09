@@ -84,3 +84,11 @@ background-color: thistle;
   margin-top:5em;
 }
 /* SEARCH PAGE ENDS */
+
+/* FOOTER START */
+footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* FOOTER ENDS  */
